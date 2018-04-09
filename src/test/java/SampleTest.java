@@ -12,14 +12,17 @@ import static org.junit.Assert.assertTrue;
  */
 public class SampleTest {
     UserController userController;
+    public RestTemplate restTemplate;
 
     @Before
     public void setUp(){
         userController = new UserController();
+        restTemplate = new RestTemplate();
     }
 
+
     @Test
-    public void testUserInfoResponce(){
+    public void testVerifyHtml_url(){
         User user = userController.getUserByName("maxkolotilkin");
         assertEquals(user.getHtml_url(), "https://github.com/maxkolotilkin");
     }
